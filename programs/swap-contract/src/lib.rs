@@ -15,7 +15,8 @@ declare_id!("BcsDNQr788YYTe9D2UsGTzAqEJHL5Xu1zupogfZ38szp");
 pub mod swap_contract {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        initialize::handler(ctx)
+    pub fn make_offer(ctx: Context<MakeOffer>) -> Result<()> {
+        initialize::make_offer::send_offered_tokens_to_vault()?;
+        initialize::make_offer::save_offer();
     }
 }
